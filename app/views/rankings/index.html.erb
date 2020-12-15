@@ -14,8 +14,8 @@
   <tbody>
     <% @rankings.each do |ranking| %>
       <tr>
-        <td><%= @current_user.ranking.point %></td>
-        <td><%= @current_user.username %></td>
+        <td><%= ranking.point %></td>
+        <td><%= ranking.user.username %></td>
         <td><%= link_to 'Show', ranking %></td>
         <td><%= link_to 'Edit', edit_ranking_path(ranking) %></td>
         <td><%= link_to 'Destroy', ranking, method: :delete, data: { confirm: 'Are you sure?' } %></td>

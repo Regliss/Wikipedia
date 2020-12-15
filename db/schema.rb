@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_131853) do
   end
 
   create_table "rankings", force: :cascade do |t|
-    t.integer "point", default: 0, null: false
+    t.float "point", default: 0.0, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
