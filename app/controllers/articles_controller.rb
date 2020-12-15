@@ -28,6 +28,10 @@ class ArticlesController < ApplicationController
     @article.user = @current_user
     respond_to do |format|
       if @article.save
+        if @current_user.ranking.nil?
+          @current_user.ranking.point += 1
+          @current_user.ranking.save
+        end
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -42,6 +46,10 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        if @current_user.ranking.nil?
+          @current_user.ranking.point += 0.5
+          @current_user.ranking.save
+        end
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else

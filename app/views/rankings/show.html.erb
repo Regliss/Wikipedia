@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Point:</strong>
+  <%= @current_user.ranking.point %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @current_user.username %>
+</p>
+
+<%= link_to 'Edit', edit_ranking_path(@ranking) %> |
+<%= link_to 'Back', rankings_path %>
