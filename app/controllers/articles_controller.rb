@@ -47,9 +47,12 @@ class ArticlesController < ApplicationController
   def update
     @article.user = @current_user
     respond_to do |format|
+      @old_article = @article.content
+      # @author = @current_user
       if @article.update(article_params)
           @current_user.ranking.point += 0.5
           @current_user.ranking.save
+        p History.create(:content => @old_article ,:author => @current_user,:article => @article)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else

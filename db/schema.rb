@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_131853) do
+ActiveRecord::Schema.define(version: 2020_12_15_170612) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "content", null: false
+    t.string "content"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string "content"
+    t.string "author"
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_histories_on_article_id"
   end
 
   create_table "rankings", force: :cascade do |t|
@@ -38,5 +47,6 @@ ActiveRecord::Schema.define(version: 2020_12_13_131853) do
   end
 
   add_foreign_key "articles", "users"
+  add_foreign_key "histories", "articles"
   add_foreign_key "rankings", "users"
 end

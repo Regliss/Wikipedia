@@ -5,4 +5,6 @@ class User < ApplicationRecord
   # L’email ne doit pas être nul, et doit être unique dans toute la base.
   validates :email, presence: true, uniqueness: true
   has_one :ranking
+  has_many :articles
+  has_many :histories
 end
