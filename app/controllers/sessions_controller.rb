@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       ret = user && user.authenticate(password)
       if ret
         session[:user_token] = user.id.to_s
-        redirect_to users_path
+        redirect_to articles_path
       else
         redirect_to sign_in_path, notice: 'Wrong credentials'
       end
