@@ -27,10 +27,9 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
-<br>
-<%= link_to 'View Ranking', rankings_path %>
-
+<%= link_to 'New Article', new_article_path %> |
+<%= link_to 'View Ranking', rankings_path %> |
+<%= link_to 'View History', histories_path %>
 
 <% for article in @articles %>
   <div style="padding: 10px; border: 2px solid #ddd; margin: 10px; border-radius: 5px;">

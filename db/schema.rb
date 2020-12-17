@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_12_15_170612) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "content"
+    t.string "content", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_170612) do
   end
 
   create_table "rankings", force: :cascade do |t|
-    t.float "point", default: 0.0, null: false
+    t.integer "point", default: 0, null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

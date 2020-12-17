@@ -13,7 +13,7 @@
     <header>
         <% if @current_user %>
         Bonjour
-          <%= @current_user.username %>
+          <b><%= @current_user.username %></b>
           <%= link_to "Sign out", '/sign_out', method: :delete %>
         <% end %>
     </header>	   
